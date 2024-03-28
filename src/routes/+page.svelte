@@ -1,5 +1,5 @@
 <script>
-	import Grid from '$lib/views/WeekView.svelte';
+	import Week from '$lib/components/views/WeekView.svelte';
 </script>
 
-<Grid />
+<Week />
