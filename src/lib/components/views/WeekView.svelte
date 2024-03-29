@@ -33,7 +33,7 @@
 	$: currentMonth = date.add(offset * 7, 'day').month();
 </script>
 
-<section class={classNames}>
+<section class={`dark:bg-gray-900 dark:text-white ${classNames}`}>
 	<div class="w-full flex justify-between">
 		<h1 class="text-3xl mb-4">
 			<span class="font-bold">
@@ -78,9 +78,11 @@
 			</button>
 		</div>
 	</div>
-	<section class="w-full grid grid-cols-7 grid-rows-2">
-		{#each weekDays as weekDay, idx}
-			<DayCell {currentMonth} {offset} {weekDay} index={idx} {date} />
-		{/each}
-	</section>
+	<div class="flex">
+		<div class="w-full grid grid-cols-7">
+			{#each weekDays as weekDay, idx}
+				<DayCell {currentMonth} {offset} {weekDay} index={idx} {date} />
+			{/each}
+		</div>
+	</div>
 </section>

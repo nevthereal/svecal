@@ -1,3 +1,7 @@
-# SveCal a Svelte Calendar
+# svelte-mond
 
-Currently WIP, but maybe soon there?
+Currently in hard WIP!
+
+## About this repository
+
+This is a little Svelte Calendar Library.
