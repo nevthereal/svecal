@@ -33,9 +33,16 @@
 
 <main class="p-6">
 	<section class="w-full flex justify-between">
-		<h1 class="text-3xl font-black">{months[today.add(offset * 7, 'day').month()]}</h1>
+		<h1 class="text-3xl">
+			<span class="font-bold">
+				{months[today.add(offset * 7, 'day').month()]}
+			</span>
+			<span class="font-medium">
+				{today.add(offset * 7, 'day').year()}
+			</span>
+		</h1>
 		<div class="flex gap-2">
-			<button on:click={() => setOffset(-1)}>
+			<button class="active:scale-95 duration-200 ease-in-out" on:click={() => setOffset(-1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
@@ -49,8 +56,10 @@
 					/>
 				</svg>
 			</button>
-			<button on:click={() => setOffset(0)}>Today</button>
-			<button on:click={() => setOffset(1)}>
+			<button class="active:scale-95 duration-200 ease-in-out" on:click={() => setOffset(0)}
+				>Today</button
+			>
+			<button class="active:scale-95 duration-200 ease-in-out" on:click={() => setOffset(1)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
@@ -72,9 +81,3 @@
 		{/each}
 	</section>
 </main>
-
-<style>
-	button {
-		@apply bg-gray-200 rounded-lg p-2 active:scale-95;
-	}
-</style>
