@@ -19,7 +19,7 @@
 		'December'
 	];
 
-	const today = dayjs();
+	const date = dayjs();
 
 	let offset = 0;
 
@@ -35,10 +35,10 @@
 	<section class="w-full flex justify-between">
 		<h1 class="text-3xl">
 			<span class="font-bold">
-				{months[today.add(offset * 7, 'day').month()]}
+				{months[date.add(offset * 7, 'day').month()]}
 			</span>
 			<span class="font-medium">
-				{today.add(offset * 7, 'day').year()}
+				{date.add(offset * 7, 'day').year()}
 			</span>
 		</h1>
 		<div class="flex gap-2">
@@ -77,7 +77,7 @@
 	</section>
 	<section class="w-full grid grid-cols-7 grid-rows-2">
 		{#each weekDays as weekDay, idx}
-			<DayCell {offset} {weekDay} index={idx} {today} />
+			<DayCell {offset} {weekDay} index={idx} {date} />
 		{/each}
 	</section>
 </main>

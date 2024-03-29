@@ -2,12 +2,12 @@
 	import type { Dayjs } from 'dayjs';
 
 	export let weekDay: string;
-	export let today: Dayjs;
+	export let date: Dayjs;
 	export let index: number;
 	export let offset: number;
 
-	const todayNum = today.get('day');
-	const date = today.add(index - todayNum + 1 + offset * 7, 'day').date();
+	const todayNum = date.get('day');
+	$: newDate = date.add(index - todayNum + 1 + offset * 7, 'day').date();
 </script>
 
 <div
@@ -15,7 +15,7 @@
 >
 	<span class="font-bold text-xl">{weekDay}</span>
 	<span
-		class={`font-medium size-8  flex justify-center items-center rounded-full ${date === today.get('date') && 'bg-red-500 text-white'}`}
-		>{date}</span
+		class={`font-medium size-8  flex justify-center items-center rounded-full ${newDate === date.get('date') && 'bg-red-500 text-white'}`}
+		>{newDate}</span
 	>
 </div>
