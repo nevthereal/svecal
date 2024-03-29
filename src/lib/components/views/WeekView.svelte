@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
 	import DayCell from '../cells/week/DayCell.svelte';
 	import dayjs from 'dayjs';
 
@@ -29,13 +28,14 @@
 		}
 		offset += newOffset;
 	};
+	$: currentMonth = date.add(offset * 7, 'day').month();
 </script>
 
 <main class="p-6">
 	<section class="w-full flex justify-between">
 		<h1 class="text-3xl">
 			<span class="font-bold">
-				{months[date.add(offset * 7, 'day').month()]}
+				{months[currentMonth]}
 			</span>
 			<span class="font-medium">
 				{date.add(offset * 7, 'day').year()}
@@ -77,7 +77,7 @@
 	</section>
 	<section class="w-full grid grid-cols-7 grid-rows-2">
 		{#each weekDays as weekDay, idx}
-			<DayCell {offset} {weekDay} index={idx} {date} />
+			<DayCell {currentMonth} {offset} {weekDay} index={idx} {date} />
 		{/each}
 	</section>
 </main>
