@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class={`p-4 flex gap-4 items-center justify-between select-none ${index != 0 && 'border-l-2'} ${newDate.month() != currentMonth && 'text-gray-500'}`}
+	class={`p-4 flex gap-4 items-center justify-between select-none ${index != 0 && 'border-l'} ${newDate.month() != currentMonth && 'text-gray-500'}`}
 >
 	<span class="font-bold text-xl">{weekDay}</span>
 	<span

@@ -2,6 +2,8 @@
 	import DayCell from '../cells/week/DayCell.svelte';
 	import dayjs from 'dayjs';
 
+	export let classNames: string;
+
 	const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 	const months = [
 		'January',
@@ -31,9 +33,9 @@
 	$: currentMonth = date.add(offset * 7, 'day').month();
 </script>
 
-<main class="p-6">
-	<section class="w-full flex justify-between">
-		<h1 class="text-3xl">
+<section class={classNames}>
+	<div class="w-full flex justify-between">
+		<h1 class="text-3xl mb-4">
 			<span class="font-bold">
 				{months[currentMonth]}
 			</span>
@@ -56,8 +58,9 @@
 					/>
 				</svg>
 			</button>
-			<button class="active:scale-95 duration-200 ease-in-out" on:click={() => setOffset(0)}
-				>Today</button
+			<button
+				class="active:scale-95 duration-200 ease-in-out font-semibold select-none"
+				on:click={() => setOffset(0)}>Today</button
 			>
 			<button class="active:scale-95 duration-200 ease-in-out" on:click={() => setOffset(1)}>
 				<svg
@@ -74,10 +77,10 @@
 				</svg>
 			</button>
 		</div>
-	</section>
+	</div>
 	<section class="w-full grid grid-cols-7 grid-rows-2">
 		{#each weekDays as weekDay, idx}
 			<DayCell {currentMonth} {offset} {weekDay} index={idx} {date} />
 		{/each}
 	</section>
-</main>
+</section>

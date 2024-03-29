@@ -1,2 +1,2 @@
 // Reexport your entry components here
-export * from './components/index.js';
+export { default as WeekView } from './components/views/WeekView.svelte';
