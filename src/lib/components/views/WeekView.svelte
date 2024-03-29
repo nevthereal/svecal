@@ -1,8 +1,9 @@
 <script lang="ts">
-	import DayCell from '../cells/DayCell.svelte';
+	import DayCell from '../cells/week/DayCell.svelte';
+	import dayjs from 'dayjs';
 
 	const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-	const today = new Date();
+	const today = dayjs();
 </script>
 
 <section class="w-full grid grid-cols-7 grid-rows-2">
